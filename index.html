@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Augmented Reality and the Web</title>
+
+		<meta name="description" content="AR Presentation for Mozilla All Hands Fall 2016">
+		<meta name="author" content="Blair MacIntyre">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/argon.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<script src="resources/js/aframe.js"></script>
+		<script src="resources/js/argon.js"></script>
+		<script src="resources/js/argon-aframe.js"></script>
+		<script src="resources/js/CSS3DArgonRenderer.js"></script>
+		<script src="resources/js/CSS3DArgonHUD.js"></script>
+		<script src="resources/js/aframe-look-at-component.js"></script>
+		<script src="index-argon.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="resources/style.css">
+	    <link rel="stylesheet" href="resources/css/font-awesome.min.css">
+
+		<!-- refs:  http://www.imore.com/pokemon-go for the PG pic 
+		-->
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides" data-background="transparent">
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>Augmented Reality and the Web</h1>
+					<h3>Past, Present and Future</h3>
+					<p>
+						<br><b><a href="http://blairmacintyre.me">Blair MacIntyre</a></b>
+						<br>
+						Principal Research Scientist, Mozilla <br><br>
+						Professor, School of Interactive Computing, Georgia Tech<br>
+						@blairmacintyre / bmacintyre@mozilla.com
+					</p>
+				</section>
+
+				<section data-background="resources/textures/cacm93tray.png">
+					<h3>Past</h3>
+					<p>Background, Terminology, Technology</p>
+					<h3>Present</h3>
+					<p>Web and AR right now</p>
+					<h3>Future</h3>
+					<p>Where do we want to go, how can we get there?</p>
+					<p></p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>But First, Why?</h2>
+					<br>
+					<br>
+					<table class="noborder" width="70%">
+							<tr>
+								<td class="green"><font size="+20">Media</font></td>
+								<td class="blue" align="center"><font size="+20">Mission</font></td>
+								<td class="red" align="right"><font size="+20">Mashup</font></td>
+							</tr>
+					</table>
+
+				</section>
+
+				<section data-transition="zoom-in slide-out" data-background="resources/textures/background-radial.jpeg">
+					<h2 class="green"><em>Prelinary Ideas, I am Looking for Feedback!</em></h2>
+					<h2 class="fragment fade-up">And Hopefully Involvement!</h2>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>Past</h1>
+				</section>
+
+				<section data-background="resources/textures/terminator.png">
+					<aside class="notes">
+						When people think of AR, they often think of movies like The Terminator
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/ften-large.jpg">
+				</section>
+
+				<section data-background="resources/textures/videogames-ar.png">
+					<aside class="notes">
+						or the heads-up displays in video games.
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/rainbows-end.png">
+					<aside class="notes">
+						or science fiction
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/imore-pokemongo-crop.png">
+					<aside class="notes">
+						or pokemon go
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/glass-google-guy.png">
+					<aside class="notes">
+						More recently, Google appropriated the term for Glass, which isn't surpising.  
+			 			It conjures a more interesting vision of the future than "head's up display"
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>What is AR?</h2>
+						<p>(or MR or Holographic Computing?)</p>
+					<p>Mixing media with a <br>person's perception of the world<br><span class="green"><em>registered in 3D</em></span><span class="green">, <em>in real-time</em></span></p>
+					<p>Other approaches to context-based media:</p>
+					<ul>
+						<li>Heads-up-Displays (Glass)</li>
+						<li>Map mashups (Ingress, Pokemon GO)</li>
+						<li>Geofencing (alerts)</li>
+					</ul>
+
+					<aside class="notes">
+						Which is not to say that there's anything wrong with a small, lightweight, 
+						heads-up display for giving continuous access to contextually relevant information.
+						Until all aspects of AR technology improve dramatically, we aren't going to be
+						able to do much more in something that could be worn all the time.  Beyond
+						wearable heads-up displays there are other ways we can deliver location or 
+						content-based content to users, and while some call themselves AR, those are
+						not what I'm focusing on here.
+
+						When I talk about AR, I'm referring to the idea the NASA and Boeing folks had 
+						when they coined the term, namely mixing media with a person's perception 
+						of the world, registered in 3D.  I don't limit AR to just visual media, or 
+						to specific display technologies.
+
+						I say this not to start an argument about what is or isn't AR;  rather, I
+						simply want to clarify what I am thinking about when I use the term.
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/vhfrsword-of-damocles.jpg">
+					<h3>Ivan Sutherland, "The Ultimate Display", mid-1960's</h3>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+
+				<section data-background="resources/textures/industrial-medical.png">
+					<aside class="notes">
+						Other popular ideas including medical, military and industrial applications,
+						vertical market applications such as for workers engaged in equipment maintenance, 
+						food safety and factory inspection.  
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/blair-montage.png">
+					<aside class="notes">
+						I think everyone here has some idea about how AR could be used.  I've been
+						doing AR research for about 25 years, and myself and others have explored
+						a wide variety of uses of AR.  Here I've including some pictures
+						of some of the more popular consumer facing ideas, including games, educational applications in health and math,
+						mixed-reality mirror worlds, room-scale interactive stories, 
+						visualizing building construction
+						and end-user training for equiment maintenance. 
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/collaborative-ar.png">
+					<aside class="notes">
+						One of the most exciting uses of AR is to create collaborative experiences,
+						for both colocated or remote participants.  While we've imagined these for years
+						it's finally becoming possible to actually deliver such experiences, illustrated
+						by the Hololens use of Skype for remote assistance. Many people have imagined or
+						experiemented with multiple games, and with using avatars in the place 
+						of remote participants in meetings or other experiences.
+						At Georgia Tech, we've recently prototyped a classroom for CS education, using
+						projection AR based on Microsoft Research's RoomAlive software, where we 
+						building on what we know about studio-based education pedagogy to 
+						improve CS education by continuously explosing the hidden work products students 
+						are creating as they learn to program.
+						This idea of passively and continuously exposing hidden work to 
+						facilitate collaboration or education is very powerful, and may one day
+						represent a major win for AR technologies.  
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/dart-screenshot-ismar03.jpg">
+					<h3>Authoring Tools for AR</h3>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<aside class="notes">
+						Beyond creating AR experiences, a large part of my own work has focused on
+						creating tools to enable others to work with AR.  One of our popular early
+						projects added AR technology to Macromedia Director, to let designers 
+						and digital media creators experiement with AR.  Since then we've worked on 
+						adding AR technology to game engines, and more recently ....   
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Again: Why the Web?</h2>
+					<img src="resources/textures/HDP-eyes.png" height="300"></img>
+					<img src="resources/textures/volcano-fever.png" height="300"></img>
+					<aside class="notes">
+						These are about both ephemeral apps, and apps that people may not want to
+						install for various reasons.
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>The "Current" Web is Not Quite There</h2>
+					<p>Local Video: Latency, no camera intrinsics</p>
+					<p>Tracking: Overheads and Speed</p>
+					<br>
+					<p>W3C standards, AWE.js, various Web-for-Native plugins</p>  
+				</section>
+
+				<section data-background="resources/textures/argon4-appstore.png">
+					<aside class="notes">
+						The Argon project is both a web browser for iOS,
+						and a set of javascript frameworks to make it easy to add AR to web systems. 
+						I'm going to return to this later in the talk.  
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>AR Technology</h2>
+					<aside class="notes">
+						Before diving in, I wanted to comment on some terminology that seems 
+						to derail conversations about AR these days.
+					</aside>
+				</section>
+
+				<section data-transition="slide-in none-out" data-background="resources/textures/background-radial.jpeg">
+					<h2>System Setup</h2>
+					<img src="resources/textures/azuma-AR-diagram.png" height="345"></img>
+					<img src="resources/textures/azuma-AR-video-mix.png" height="345"></img>
+					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
+
+					<aside class="notes">
+						This definition goes back quite a while, and most AR systems correspond
+						roughly to the diagrams Azuma had in his 1997 paper.  While he focused on 
+						head-worn displays, the same basic elements exist in all AR systems: sensing 
+						of the world and where the display is, generating appropriate media and displaying
+						content such that it appears to align with the relevant parts of the world.
+					</aside>
+				</section>
+
+				<section data-transition="slide-in none-out" data-background="resources/textures/background-radial.jpeg">
+					<h2>System Setup</h2>
+					<img src="resources/textures/azuma-AR-video-mix.png" height="500"></img>
+					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
+				</section>
+
+				<section data-transition="none-in none-out" data-background="resources/textures/background-radial.jpeg">
+					<h2>System Setup</h2>
+					<img src="resources/textures/azuma-AR-video-mix-VR.jpeg" height="500"></img>
+					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
+
+					<aside class="notes">
+						For those familiar with VR ...
+					</aside>
+				</section>
+
+				<section data-transition="none-in slide-out" data-background="resources/textures/background-radial.jpeg">
+					<h2>System Setup</h2>
+					<img src="resources/textures/azuma-AR-video-mix-questions.jpeg" height="500"></img>
+					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<p>Can only <span class="green">display relative to</span> what we <br>
+					already <span class="green">know or can sense</span> <br>
+					about the world </p><br>
+					<p>Must display in <span class="green">real time</span> (akin to VR)</p> 
+
+					<br>
+					<p class="fragment">Core problems are <span class="blue">displays</span>, 
+					<span class="blue">sensing</span>, and 
+					<span >services for world knowledge</span>.</p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Sense the world <em>relative to display</em></h2>
+					<br>
+					<p><b>Inside-out</b></p>
+					<p>(e.g., computer vision &amp; depth sensing, object recognition)</p>
+					<p><b>Outside-in</b></p>
+					<p>(e.g., GPS, Vive Lighthouse)</p>
+
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Current Approaches to AR</h2>
+				</section>
+
+				<section data-transition="slide-in fade-out" data-background="resources/textures/modern-hmds.png">
+
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<h3>Head Mounted Displays</h3>
+
+					<video preload muted width="30%" src="resources/videos/hololens-trim-noaudio.mp4"></video>
+
+					<aside class="notes">
+						It matters more what the user wants to do when deciding on platform.
+
+						First, the companies in the space have been trying to distinguish themselves
+						from each other with terms that pretty much mean the same thing.  Google used
+						AR to mean heads-up-displays, so Microsoft decided to use Holographic 
+						computing to distinguish Hololens from Glass.  And then Magic Leap and others
+						decided to use Mixed Reality to emphasize that their displays do a better
+						job of mixing graphics with the world than the traditional approach to see 
+						through displays.  I understand why they did this, from a marketing 
+						and branding perspective, and even agree with the distinctions each of these 
+						companies are making, but the downside is there there are a bunch of false distinctions
+						and confusion when people try to talk about the technologies.  To me, these
+						terms are interchangable. 
+
+						Similarly, I think it's worth remembering that a lot of what is done in
+						AR using different technologies is often done for expedience.  There are good
+						reasons for picking different technologies for different applications, and its
+						often the case that the wrong technologies were used for experiences in the past
+						simply because they were the only ones available.  For example, a lot of our
+						work on AR games would have been much more suited to HMD's like Hololens, but 
+						the tech wasn't available.  I've seen a lot of discussion where people are
+						proposing AR experiences on new HMDs and contrasting them with the work 
+						people have done in the past, and presenting that past work as flawed because
+						the developers chose no not use HMDs.  
+
+					</aside>
+				</section>
+
+
+				<section data-transition="slide-out fade-in" data-background="resources/textures/hmd-guy.png">
+		
+					<blockquote style="background: rgba(32, 32, 32, 0.5);">
+						<span>(Perhaps HMD's will dominate when<br> they look like this, but that's a long way off)</span>
+					</blockquote>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				
+					<aside class="notes">
+						And, in particular, there are always tradeoffs.  Until tracking, world modeling
+						and understanding allows us to present graphics to users at a level of quality 
+						you see on sports broadcasts on TV, HMDs will not be feasible for continuous use.
+
+						Furthermore, issues like input, haptic feedback, collaboration and how these
+						displays fit into existing work practices will further impede them replacing 
+						other display and input technologies. 
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/lenovo-phab2-lowes.jpg">
+					<h2>Traditional (Handheld and Desktop) Displays</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<video preload muted width="20%" src="resources/videos/ARhrrrr-trim.mov"></video>
+					<video preload muted width="20%" src="resources/videos/tango-cat.m4v"></video>
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/arstudio.png">
+					<h2>Projection Displays</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<video preload muted width="20%" src="resources/videos/roomalive.mp4"></video>
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Observations About Using AR</h2>
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+
+				<section data-transition="slide-in fade-out" data-background="resources/textures/iss-ar.png">
+				<h2>1: Intended Use</h2>
+					<blockquote style="background: rgba(32, 32, 32, 0.6);">
+						<p><span class="green">Tools</span> vs Awareness</p>
+					</blockquote>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+						<aside class="notes">
+							More interesting than platform is considering the kind of application
+						</aside>
+				</section>
+
+				<section data-transition="fade-in slide-out" data-background="resources/textures/ar-driving-bad.png">
+				<h2>1: Intended Use</h2>
+					<blockquote style="background: rgba(32, 32, 32, 0.6);">
+						<p>Tools vs <span class="green">Awareness</span></p>
+					</blockquote>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+						<aside class="notes">
+							bad driving
+						</aside>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>2: The "R" in "AR" Matters</h2>
+					<p>AR depends on knowledge of the world</p>
+					<p>Can only augment what the system knows about</p>
+					<br>
+					<p><em class="green">Knowledge (in apps) equals risk (for users and others)</em></p>
+				</section>
+
+				<section data-background="resources/textures/home-HoloLens-crop.jpg">
+					<aside class="notes">
+						Here's an example of a picture I grabbed the first night I had a Hololens
+						and brought it home to play with.  Is 
+					</aside>
+				</section>
+
+				<section data-transition="slide-in fade-out" data-background="resources/textures/world-display.png">
+					<h2>3: Different ways to Leverage "R"</h2>
+					<blockquote style="background: rgba(32, 32, 32, 0.6);">
+						<p>World as Massive Display Space (<span class="green">Structure</span>)</p>
+					</blockquote>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+				<section data-transition="fade-in slide-out" data-background="resources/textures/spaceframe.png">
+					<h2>3: Different ways to Leverage "R"</h2>
+					<blockquote style="background: rgba(32, 32, 32, 0.6);">
+						<p>Recognize and/or Augment Specific Things (<span class="green">Semantics</span>)</p>
+					</blockquote>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>Present</h1>
+				</section>
+
+
+				<section data-state="argonslide">
+					<h2>This Presentation is Running in Argon4</h2>
+					<p><em>on an iPhone</em></p>
+					<p>Using argon.js + reveal.js + aframe.js + argon-aframe.js</p>
+				</section>
+
+				<section data-state="argonslide arstuff" style="text-align: left; top: 0px;">
+					<h2>Stuff around the room</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+				<section data-state="argonslide vuforia" style="text-align: left;">
+					<h2>Computer vision AR w/ Vuforia</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+				<section data-state="argonslide geomarkers" style="text-align: left;">
+					<h2>Planetary scale geographic AR</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+				<section data-state="argonslide geomarkers panorama" style="text-align: left;">
+					<h2>Custom Reality (Panorama)</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section data-background="resources/textures/background-radial.jpeg">
+					<section data-background="resources/textures/background-radial.jpeg">
+						<h2>Added Argon to reveal.js Demo</h2>
+						<p>Add some new scripts up top</p>
+						<pre><code class="HTML" data-trim contenteditable>
+&lt;script src="resources/js/aframe.js"&gt; &lt;/script&gt; 
+&lt;script src="resources/js/argon.js"&gt; &lt;/script&gt; 
+&lt;script src="resources/js/argon-aframe.js"&gt; &lt;/script&gt; 
+						</code></pre>
+						<p>Add a simple AFrame scene down below</p>
+						<pre><code class="HTML" data-trim contenteditable>
+&lt;ar-scene&gt; 
+ ...
+&lt;/ar-scene&gt;
+						</code></pre>
+					 	<p>Adjust the CSS a bit, add some Javascript and we're off...</p>
+					</section>
+					<section data-background="resources/textures/background-radial.jpeg">
+						<h2>Simple Declarative 3D AR Content</h2>
+						<pre><code class="HTML" data-trim contenteditable>
+&lt;a-box position="0 3 -10" radius="0.25" color="gold" 
+       rotation="0 0 45"&gt;
+  &lt;a-animation attribute="rotation" from="0 0 45" to="0 360 45" 
+	       dur="1000" easing="ease-in-out" 
+	       repeat="indefinite"&gt;
+  &lt;/a-animation&gt;
+&lt;/a-box&gt;
+						</code></pre>
+						<p>A-Frame markup to create a spinning gold diamond</p>
+					</section>
+
+					<section data-background="resources/textures/background-radial.jpeg">
+						<h2>Geospatial frames of reference</h2>
+						<pre><code class="HTML" data-trim contenteditable>
+&lt;ar-geopose id="GT" lla="-84.394539 33.772501" userotation="false"&gt; 
+  &lt;a-entity fixedsize="20" billboard&gt;
+    &lt;a-plane rotation="0 0 0" width="2.9" height="4" src="#buzzpin" 
+             transparent="true" &gt;&lt;/a-plane&gt;
+    &lt;a-entity css-object="div: #gtdiv" scale="0.02 0.02 0.02" 
+        position="0 4 0" 
+        showdistance="Tech Tower @ GT&lt;br&gt;Atlanta, GA, USA&lt;br&gt;It is "&gt;
+    &lt;/a-entity&gt;
+  &lt;/a-entity&gt;
+&lt;/ar-geopose&gt;
+						</code></pre>
+						<p>A-Frame markup to put a pin at Georgia Tech</p>
+					</section>
+
+					<section data-background="resources/textures/background-radial.jpeg">
+						<h2>Simple Vuforia Setup and Use</h2>
+						<pre><code class="HTML" data-trim contenteditable>
+&lt;ar-scene vuforiakey="#vuforiakey"
+       vuforiadataset__stonesandchips="src:url(StonesAndChips.xml);"&gt;
+  &lt;a-assets&gt;
+    &lt;a-asset-item id="vuforiakey" src="key.txt"&gt;&lt;/a-asset-item&gt;
+  &lt;/a-assets&gt;
+
+  &lt;ar-frame id="frame" trackvisibility="true" visible="false"
+            parent="vuforia.stonesandchips.stones"&gt;
+		...
+  &lt;/ar-frame&gt;
+&lt;/ar-scene&gt;
+						</code></pre>
+						<p>A-Frame markup to put content on a visual target</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section data-background="resources/textures/background-radial.jpeg">
+						<h2>Web Ecosystem is Rich and Diverse</h2>
+						<p>Many tools, from the simple to the elaborate</p>
+						<p>Mashups may suggest new ways of creating 3D!</p>
+					</section>
+
+					<section data-background="resources/textures/twine.png">
+						<h2>Twine</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<p>(twinery.org)
+					</section>
+
+					<section data-background="resources/textures/twine-page15.png">
+						
+					</section>	
+
+					<section data-state="argonslide" data-background="transparent">
+					</section>
+
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Thoughts on AR plus Web</h2>
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>1: There will be Apps, Not Just "Content"</h2>
+					<p><em>(or something like apps)</em></p>
+					<p>Non-trivial content requires code and interaction</p>
+					<p>Security and privacy require sandboxing</p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>2: Will want to run many apps at once</h2>
+					<p>Current focus on individual apps w/ full control</p>
+					<p>As with 2D/3D before, user's will want to mix and match</p>
+					<p>Mash up pages/apps, mix 2D/AR/VR content, mix displays and sensing</p>
+				</section>
+
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>3: Decouple apps from "Reality"</h2>
+					<p>Decoupling necessary for portability</p>
+					<p>Let app creators and users control "representation of reality"</p>
+					<p>Don't limit users to their local reality</p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>4: AR is "just" a capability</h2>
+					<p>There will still be apps, but not "AR apps"</p>
+					<p>AR something you add to a system or app</p>
+					<br>
+					<p><span class="green"><em>Think about what AR is good for and how it fits into web ecosystem</em></span></p>
+				</section>
+
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>Future</h1>
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>My Hope: Mixed Media Mashups</h1>
+					<p class="green">2D + 3D + AR + VR + mobile + desktop + HMDs + ... </p>
+					<p class="green">Focus on User choice </p>
+					<br>
+					<p>Web <em>for</em> AR/VR <br><b>and</b><br> Web <em>in</em> AR/VR</p>
+				</section>
+
+				
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Plans ...</h2>
+				</section>
+				<section data-background="resources/textures/background-radial.jpeg">
+					<table class="thickhead" width="75%">
+						<thead>
+							<tr>
+								<th>Time Frame</th>
+								<th align="center">Activity</th>
+								<th align="right">Goals</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>now</td>
+								<td align="center">
+									"Web Now"<br> (w/ argon.js)
+								</td>
+								<td align="right">
+									use cases <br>
+									mashups w/ 2D, VR<br>
+									 web services
+								</td>
+							</tr>
+							<tr>
+								<td>3-12 months</td>
+								<td align="center">
+									Mozilla AR app<br>(mobile + desktop) 
+								</td>
+								<td align="right">
+									 technical experiments<br>
+									 browser interfaces
+								</td>								
+							</tr>
+							<tr>
+								<td>1-2 years</td>
+								<td align="center">W3C, etc</td>
+								<td align="right">standards<br>(WebRTC, WebVR, ...)</td>
+							</tr>
+							<tr>
+								<td>1-3 years</td>
+								<td align="center">Firefox<br>(and peers)</td>
+								<td align="right">WebAR <br></td>
+							</tr>
+							<tr>
+								<td>1-5 years</td>
+								<td align="center">ecosystem,<br>new devices</td>
+								<td align="right">HMDs, IoT,<br> wearables, cars, ...</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+				<h2>Going Beyond "Web Now"</h2>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+				<h2>Enabling Technology</h2>
+					<p><span class="green">Low-latency Video Processing Pipeline</span></p>
+					<p>Video frames into GPU/JS + vision processing</p>
+					<p>(WebRTC, workers, WebAssembly, Servo, etc)</p><br>
+					<video preload muted width="30%" src="resources/videos/ctai-foxeye.mp4"></video>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Flesh out Needed Services</h2>
+					<p>Already massive amount of content tied to the world<br>
+					(Much of it lacks altitude, is inaccurate)</p>
+					<p>Camera Intrinsics database<br>
+					(Vuforia, ARToolkit)
+					<br><em>(eventually: W3C media-capture-depth, KHRONOS OpenKCam, ...)</em></p>
+
+					<br>
+					<p>Need new services, for <span class="green">object or location-based search and discovery</span>,<br> <span class="green">world knowledge</span>, <span class="green">object recognition</span>, ...</p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+				<h2>What Might a First AR Browser App Look Like?</h2>
+				</section>
+
+				<section data-background="resources/textures/sketch-argon-arch.png">
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+				<h2>How Might This Be Done Using Gecko (or Servo)?</h2>
+				<p>Keep: multiple apps, custom realities</p>
+				<p>Add: live video access, custom device support (Tango, Hololens, etc)</p>
+				<p>Explore: Privacy issues</p>
+				</section>
+
+				<section data-background="resources/textures/sketch-webvr-arch.png">
+				</section>
+
+				<section data-background="resources/textures/sketch-webar-arch.png">
+				</section>
+
+				<section data-background="resources/textures/sketch-webar-vision.png">
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+				<h2>Nice Features</h2>
+				<p>Efficiency</p>
+				<p>Privacy / Security</p>
+				<p>Clean Multi-app Integration</p>
+				</section>
+
+
+				<section data-background="resources/textures/background-radial.jpeg">
+				<h3>Outstanding Isses</h2>
+				<p>Battery</p>
+				<p>Device position (GPS, indoor localization)</p>
+				<p>Camera intrinsics</p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+				<h2>Experiment with Browser Experience</h2>
+				<p>Extend Windows+Tabs model:  "webRTC+vision", enhanced WebVR</p>
+				<p>Embeddable AR/VR Gecko</p>
+				<p>AR/VR-centric: Argon, sort of.  AR/VR-first? </p>
+				<p>Other: link to the world, object recognition-based, Prox</p>
+				</section>
+
+				<section data-background="resources/textures/ironman.png">
+					<h2>Experiment with Use Cases for Web-AR</h2>
+					<blockquote style="background: rgba(32, 32, 32, 0.6);">
+						<p>AR at intersection of Web, context/IoT, and 3D/VR</p><br>
+					</blockquote>
+
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+				<section data-background="resources/textures/imore-pokemongo-crop.png">
+					<h2>Perhaps Aim for a Complete Experience: <br>A Real AR "Pokemon GO"-like Game?</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+
+				<section data-background="resources/textures/background-radial.jpeg" style="text-align: left;">
+					<h2>Thanks!</h2>
+					<p>Contact me via email: <a href="mailto:bmacintyre@mozilla.com">bmacintyre@mozilla.com</a>
+
+					<p>To try some of this yourself</p>
+					<ul>
+						<li>Download Argon4 for iOS</li>
+						<li><a href="https://argonjs.io">http://argonjs.io</a>: argon.js source code, samples &amp; docs</li>
+					</ul>
+
+					<br><br>
+					<p>https://blairmacintyre.github.io/hawaii-all-hands-2016/</p>
+				</section>
+
+			</div>
+
+		</div>
+
+    <div hidden>    
+      <div id="gtdiv" class="label">Georgia Tech</div>
+      <div id="londondiv" class="label">Tower of London</div>
+      <div id="tokyodiv" class="label">Tokyo</div>
+      <div id="maunaloadiv" class="label">Mauna Loa</div>
+      <div id="maunakeadiv" class="label">Mauna Kea</div>
+      <div id="sydneydiv" class="label">Sydney Opera House</div>
+      <div id="londonpin" class="pin"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+      <div id="tokyopin" class="pin"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+      <div id="maunaloapin" class="pin"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+      <div id="maunakeapin" class="pin"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+      <div id="sydneypin" class="pin"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+    </div>
+    <ar-scene vuforiakey="#vuforiakey"
+              vuforiadataset__stonesandchips="src:url(resources/datasets/StonesAndChips.xml);">
+      <a-assets>
+        <img id="buzzpin" src="resources/textures/buzz-pin.png">
+        <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
+        <a-mixin id="light" geometry="primitive: sphere; radius: 1.5"
+                 material="color: #FFF; shader: flat"
+                 light="color: #DDDDFF; distance: 120; intensity: 2; type: point">
+        </a-mixin>
+        <a-mixin id="torus-knot" geometry="primitive: torusKnot"
+                 material="color: red"></a-mixin>
+      </a-assets>
+
+      <!-- attach to stones target. x/y in the plane, z up -->
+      <ar-frame id="frame" trackvisibility="true" visible="false" parent="vuforia.stonesandchips.stones" position="0 0 0" rotation="0 0 0">
+       <a-entity scale="0.003 0.003 0.003">
+        <a-entity id="stuff"></a-entity>
+
+        <!-- Lights. -->
+        <a-entity position="0 0 25">
+          <a-animation attribute="rotation" to="0 0 360"
+                      repeat="indefinite" easing="linear" dur="4096">
+          </a-animation>
+          <a-entity mixin="light" position="15 0 0"></a-entity>
+        </a-entity>
+
+        <a-entity position="0 0 25">
+          <a-animation attribute="rotation" to="360 0 0"
+                      repeat="indefinite" easing="linear" dur="4096">
+          </a-animation>
+          <a-entity mixin="light" position="0 0 25"></a-entity>
+        </a-entity>
+       </a-entity>
+      </ar-frame>      
+
+		  <ar-frame userotation=false parent="ar.user" id="arStuff" rotation="0 45 0" visible="false">
+			<a-box cursor-listener position="-7 0 -10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation" begin=200 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-5 1 -10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=100 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-2 -1 -10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=250 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="0 3 -10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=20 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="1 -0.5 -10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=180 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="2.5 1.5 -10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=60 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="3.5 -0.5 -10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=75 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="6 1.5 -10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=120 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+
+			<a-box cursor-listener position="-7 0 10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation" begin=200 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-5 1 10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=100 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-2 -1 10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=250 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="0 3 10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=20 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="1 -0.5 10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=180 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="2.5 1.5 10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=60 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="3.5 -0.5 10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=75 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="6 1.5 10" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=120 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+
+			<a-box cursor-listener position="10 0 -7" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation" begin=200 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="10 1 5" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=100 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="10 -1 -2" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=250 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="10 3 0" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=20 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="10 -0.5 1" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=180 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="10 1.5 2.5" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=60 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="10 -0.5 3.5" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=75 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="10 1.5 6" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=120 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>			
+
+			<a-box cursor-listener position="-10 0 -7" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation" begin=200 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-10 1 5" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=100 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-10 -1 -2" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=250 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-10 3 0" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=20 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-10 -0.5 1" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=180 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-10 1.5 2.5" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=60 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-10 -0.5 3.5" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=75 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>
+			<a-box cursor-listener position="-10 1.5 6" radius="0.25" color="gold" rotation="0 0 45">
+				<a-animation attribute="rotation"  begin=120 from="0 0 45" to="0 360 45" dur="1000" easing="ease-in-out" repeat="indefinite"></a-animation>
+			</a-box>			
+		</ar-frame>
+
+		<ar-camera>
+			<a-entity id="myCursor" cursor="fuse:true; fuse-timeout: 1000"
+						position="0 0 -0.1"
+						geometry="primitive:ring; radiusInner: 0.001; radiusOuter: 0.0015"
+						material="color: #2E3A87; opacity:0.3;">          
+			</a-entity>
+		</ar-camera>
+		<a-entity id="geo" visible="false">
+
+      <ar-geopose id="GT" lla="-84.394539 33.772501" userotation="false"> 
+         <a-entity fixedsize="20" billboard>
+           <a-plane rotation="0 0 0" width="2.9" height="4" src="#buzzpin" transparent="true" ></a-plane>
+           <a-entity css-object="div: #gtdiv" scale="0.02 0.02 0.02" position="0 4 0" showdistance="Tech Tower @ Georgia Tech<br>Atlanta, GA, USA<br>It is "></a-entity>
+        </a-entity>
+      </ar-geopose>
+      <ar-geopose id="London" lla="-0.076057 51.507953" userotation="false"> 
+         <a-entity fixedsize="20" billboard>
+           <a-entity css-object="div: #londonpin" scale="0.05 0.05 0.05" position="0 0 0"></a-entity>
+           <a-entity css-object="div: #londondiv" scale="0.02 0.02 0.02" position="0 3 0" showdistance="The Tower of London<br>London, England<br>It is "></a-entity>
+        </a-entity>
+      </ar-geopose>
+      <ar-geopose id="Sydney" lla="151.215286 -33.856900" userotation="false"> 
+         <a-entity fixedsize="20" billboard>
+           <a-entity css-object="div: #sydneypin" scale="0.05 0.05 0.05" position="0 0 0"></a-entity>
+           <a-entity css-object="div: #sydneydiv" scale="0.02 0.02 0.02" position="0 3 0" showdistance="Sydney Opera House<br>Sydney, Australia<br>It is "></a-entity>
+        </a-entity>
+      </ar-geopose>
+      <ar-geopose id="Tokyo" lla=" 139.752797 35.685138" userotation="false"> 
+         <a-entity fixedsize="20" billboard>
+           <a-entity css-object="div: #tokyopin" scale="0.05 0.05 0.05" position="0 0 0"></a-entity>
+           <a-entity css-object="div: #tokyodiv" scale="0.02 0.02 0.02" position="0 3 0" showdistance="Imperial Palace<br>Tokyo, Japan<br>It is "></a-entity>
+        </a-entity>
+      </ar-geopose>
+      <ar-geopose id="Mauna Loa" lla="-155.592002 19.472147 4169" userotation="false"> 
+         <a-entity fixedsize="20" billboard>
+           <a-entity css-object="div: #maunaloapin" scale="0.05 0.05 0.05" position="0 0 0"></a-entity>
+           <a-entity css-object="div: #maunaloadiv" scale="0.02 0.02 0.02" position="0 3 0" showdistance="Mauna Loa Volcano<br>Hawaii, USA<br>It is "></a-entity>
+        </a-entity>
+      </ar-geopose>
+      <ar-geopose id="Mauna Kea" lla="-155.467781 19.818410 4207" userotation="false"> 
+         <a-entity fixedsize="20" billboard>
+           <a-entity css-object="div: #maunakeapin" scale="0.05 0.05 0.05" position="0 0 0"></a-entity>
+           <a-entity css-object="div: #maunakeadiv" scale="0.02 0.02 0.02" position="0 3 0" showdistance="Mauna Kea Volcano<br>Hawaii, USA<br>It is "></a-entity>
+        </a-entity>
+      </ar-geopose>
+	  </a-entity>	
+	  <a-light type=ambient color="#BBB"></a-light>
+	  <a-light color="#fff" intensity=0.6 position="-0.5 1 1"></a-light>	
+		</ar-scene>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+				overview: false,
+				width: 1280,
+				height: 720,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+		<script src="app.js"></script>
+
+	</body>
+</html>
