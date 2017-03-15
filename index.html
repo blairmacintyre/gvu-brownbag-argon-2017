@@ -53,25 +53,90 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides" data-background="transparent">
 				<section data-background="resources/textures/background-radial.jpeg">
-					<h1>Augmented Reality and the Web</h1>
-					<h3>Past, Present and Future</h3>
+					<h1>The Argon Project</h1>
+					<h3>The Past, Present and Future of AR on the Web</h3>
 					<p>
 						<br><b><a href="http://blairmacintyre.me">Blair MacIntyre</a></b>
 						<br>
 						Principal Research Scientist, Mozilla <br><br>
 						Professor, School of Interactive Computing, Georgia Tech<br>
 						@blairmacintyre / bmacintyre@mozilla.com
+						
+						<br><b><a href="http://ael.gatech.edu/lab/author/gheric/">Gheric MacIntyre</a></b>
+						<br>
+						PhD Student, School of Interactive Computing, Georgia Tech<br>
+						@speigg / gheric@gatech.edu
 					</p>
 				</section>
+				
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>AR Technology</h2>
+					<aside class="notes">
+						Before diving in, I wanted to comment on some terminology that seems 
+						to derail conversations about AR these days.
+					</aside>
+				</section>
 
-				<section data-background="resources/textures/cacm93tray.png">
-					<h3>Past</h3>
-					<p>Background, Terminology, Technology</p>
-					<h3>Present</h3>
-					<p>Web and AR right now</p>
-					<h3>Future</h3>
-					<p>Where do we want to go, how can we get there?</p>
-					<p></p>
+				<section data-transition="slide-in none-out" data-background="resources/textures/background-radial.jpeg">
+					<h2>System Setup</h2>
+					<img src="resources/textures/azuma-AR-diagram.png" height="345"></img>
+					<img src="resources/textures/azuma-AR-video-mix.png" height="345"></img>
+					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
+
+					<aside class="notes">
+						This definition goes back quite a while, and most AR systems correspond
+						roughly to the diagrams Azuma had in his 1997 paper.  While he focused on 
+						head-worn displays, the same basic elements exist in all AR systems: sensing 
+						of the world and where the display is, generating appropriate media and displaying
+						content such that it appears to align with the relevant parts of the world.
+					</aside>
+				</section>
+
+				<section data-transition="slide-in none-out" data-background="resources/textures/background-radial.jpeg">
+					<h2>System Setup</h2>
+					<img src="resources/textures/azuma-AR-video-mix.png" height="500"></img>
+					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
+				</section>
+
+				<section data-transition="none-in none-out" data-background="resources/textures/background-radial.jpeg">
+					<h2>System Setup</h2>
+					<img src="resources/textures/azuma-AR-video-mix-VR.jpeg" height="500"></img>
+					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
+
+					<aside class="notes">
+						For those familiar with VR ...
+					</aside>
+				</section>
+
+				<section data-transition="none-in slide-out" data-background="resources/textures/background-radial.jpeg">
+					<h2>System Setup</h2>
+					<img src="resources/textures/azuma-AR-video-mix-questions.jpeg" height="500"></img>
+					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<p>Can only <span class="green">display relative to</span> what we <br>
+					already <span class="green">know or can sense</span> <br>
+					about the world </p><br>
+					<p>Must display in <span class="green">real time</span> (akin to VR)</p> 
+
+					<br>
+					<p class="fragment">Core problems are <span class="blue">displays</span>, 
+					<span class="blue">sensing</span>, and 
+					<span >services for world knowledge</span>.</p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Sense the world <em>relative to display</em></h2>
+					<br>
+					<p><b>Inside-out</b></p>
+					<p>(e.g., computer vision &amp; depth sensing, object recognition)</p>
+					<p><b>Outside-in</b></p>
+					<p>(e.g., GPS, Vive Lighthouse)</p>
+
+					<aside class="notes">
+
+					</aside>
 				</section>
 
 				<section data-background="resources/textures/background-radial.jpeg">
@@ -86,15 +151,6 @@
 							</tr>
 					</table>
 
-				</section>
-
-				<section data-transition="zoom-in slide-out" data-background="resources/textures/background-radial.jpeg">
-					<h2 class="green"><em>Prelinary Ideas, I am Looking for Feedback!</em></h2>
-					<h2 class="fragment fade-up">And Hopefully Involvement!</h2>
-				</section>
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h1>Past</h1>
 				</section>
 
 				<section data-background="resources/textures/terminator.png">
@@ -216,28 +272,6 @@
 					</aside>
 				</section>
 
-				<section data-background="resources/textures/dart-screenshot-ismar03.jpg">
-					<h3>Authoring Tools for AR</h3>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<aside class="notes">
-						Beyond creating AR experiences, a large part of my own work has focused on
-						creating tools to enable others to work with AR.  One of our popular early
-						projects added AR technology to Macromedia Director, to let designers 
-						and digital media creators experiement with AR.  Since then we've worked on 
-						adding AR technology to game engines, and more recently ....   
-					</aside>
-				</section>
-
 				<section data-background="resources/textures/background-radial.jpeg">
 					<h2>Again: Why the Web?</h2>
 					<img src="resources/textures/HDP-eyes.png" height="300"></img>
@@ -247,6 +281,27 @@
 						install for various reasons.
 					</aside>
 				</section>
+		
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Thoughts on AR plus Web</h2>
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>1: There will be Apps, Not Just "Content"</h2>
+					<p><em>(or something like apps)</em></p>
+					<p>Non-trivial content requires code and interaction</p>
+					<p>Security and privacy require sandboxing</p>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>2: Will want to run many apps at once</h2>
+					<p>Current focus on individual apps w/ full control</p>
+					<p>As with 2D/3D before, user's will want to mix and match</p>
+					<p>Mash up pages/apps, mix 2D/AR/VR content, mix displays and sensing</p>
+				</section>
 
 				<section data-background="resources/textures/background-radial.jpeg">
 					<h2>The "Current" Web is Not Quite There</h2>
@@ -255,83 +310,13 @@
 					<br>
 					<p>W3C standards, AWE.js, various Web-for-Native plugins</p>  
 				</section>
+		
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h2>Excitement about XR Ecosystem</h2>
+				</section>
 
 				<section data-background="resources/textures/argon4-appstore.png">
-					<aside class="notes">
-						The Argon project is both a web browser for iOS,
-						and a set of javascript frameworks to make it easy to add AR to web systems. 
-						I'm going to return to this later in the talk.  
-					</aside>
-				</section>
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h2>AR Technology</h2>
-					<aside class="notes">
-						Before diving in, I wanted to comment on some terminology that seems 
-						to derail conversations about AR these days.
-					</aside>
-				</section>
-
-				<section data-transition="slide-in none-out" data-background="resources/textures/background-radial.jpeg">
-					<h2>System Setup</h2>
-					<img src="resources/textures/azuma-AR-diagram.png" height="345"></img>
-					<img src="resources/textures/azuma-AR-video-mix.png" height="345"></img>
-					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
-
-					<aside class="notes">
-						This definition goes back quite a while, and most AR systems correspond
-						roughly to the diagrams Azuma had in his 1997 paper.  While he focused on 
-						head-worn displays, the same basic elements exist in all AR systems: sensing 
-						of the world and where the display is, generating appropriate media and displaying
-						content such that it appears to align with the relevant parts of the world.
-					</aside>
-				</section>
-
-				<section data-transition="slide-in none-out" data-background="resources/textures/background-radial.jpeg">
-					<h2>System Setup</h2>
-					<img src="resources/textures/azuma-AR-video-mix.png" height="500"></img>
-					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
-				</section>
-
-				<section data-transition="none-in none-out" data-background="resources/textures/background-radial.jpeg">
-					<h2>System Setup</h2>
-					<img src="resources/textures/azuma-AR-video-mix-VR.jpeg" height="500"></img>
-					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
-
-					<aside class="notes">
-						For those familiar with VR ...
-					</aside>
-				</section>
-
-				<section data-transition="none-in slide-out" data-background="resources/textures/background-radial.jpeg">
-					<h2>System Setup</h2>
-					<img src="resources/textures/azuma-AR-video-mix-questions.jpeg" height="500"></img>
-					<p><small>Ron Azuma. "A Survey of Augmented Reality" <em>Presence (1997)</em></small></p>
-				</section>
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<p>Can only <span class="green">display relative to</span> what we <br>
-					already <span class="green">know or can sense</span> <br>
-					about the world </p><br>
-					<p>Must display in <span class="green">real time</span> (akin to VR)</p> 
-
-					<br>
-					<p class="fragment">Core problems are <span class="blue">displays</span>, 
-					<span class="blue">sensing</span>, and 
-					<span >services for world knowledge</span>.</p>
-				</section>
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h2>Sense the world <em>relative to display</em></h2>
-					<br>
-					<p><b>Inside-out</b></p>
-					<p>(e.g., computer vision &amp; depth sensing, object recognition)</p>
-					<p><b>Outside-in</b></p>
-					<p>(e.g., GPS, Vive Lighthouse)</p>
-
-					<aside class="notes">
-
-					</aside>
+					<h2>Research Questions</h2>
 				</section>
 
 				<section data-background="resources/textures/background-radial.jpeg">
@@ -543,9 +528,37 @@
 				</section>
 
 				<section data-background="resources/textures/background-radial.jpeg">
-					<h1>Present</h1>
+					<h1>The Problem with "AR Apps"</h1>
 				</section>
 
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>The Argon Project: early motivations</h1>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>Ethereal</h1>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>The Argon Project: continued motivations</h1>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>The Argon Project: Architecture</h1>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>Implications for Applications</h1>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>Argon4 and Other browsers</h1>
+				</section>
+
+				<section data-background="resources/textures/background-radial.jpeg">
+					<h1>Argonjs.io and Argon4 now Open Sourced</h1>
+				</section>
 
 				<section data-state="argonslide">
 					<h2>This Presentation is Running in Argon4</h2>
@@ -714,28 +727,7 @@
 
 				</section>
 
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h2>Thoughts on AR plus Web</h2>
-					<aside class="notes">
-
-					</aside>
-				</section>
-
-
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h2>1: There will be Apps, Not Just "Content"</h2>
-					<p><em>(or something like apps)</em></p>
-					<p>Non-trivial content requires code and interaction</p>
-					<p>Security and privacy require sandboxing</p>
-				</section>
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h2>2: Will want to run many apps at once</h2>
-					<p>Current focus on individual apps w/ full control</p>
-					<p>As with 2D/3D before, user's will want to mix and match</p>
-					<p>Mash up pages/apps, mix 2D/AR/VR content, mix displays and sensing</p>
-				</section>
+				
 
 
 				<section data-background="resources/textures/background-radial.jpeg">
