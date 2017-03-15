@@ -178,7 +178,7 @@
 						experiemented with multiple games, and with using avatars in the place 
 						of remote participants in meetings or other experiences.
 						At Georgia Tech, we've recently prototyped a classroom for CS education, using
-						projection AR based on Microsoft Research's RoomAlive software, where we 
+						projection AR based on Microsoft Research's RoomAlive software, where we
 						building on what we know about studio-based education pedagogy to 
 						improve CS education by continuously explosing the hidden work products students 
 						are creating as they learn to program.
@@ -401,120 +401,10 @@
 					<br>
 					<p>W3C standards, AWE.js, various Web-for-Native plugins</p>  
 				</section>
-		
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h2>Excitement about XR Ecosystem</h2>
-				</section>
 
 				<section data-background="resources/textures/argon4-appstore.png">
 					<h2>Research Questions</h2>
 				</section>
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h2>Observations About Using AR</h2>
-					<aside class="notes">
-
-					</aside>
-				</section>
-
-
-				<section data-transition="slide-in fade-out" data-background="resources/textures/iss-ar.png">
-				<h2>1: Intended Use</h2>
-					<blockquote style="background: rgba(32, 32, 32, 0.6);">
-						<p><span class="green">Tools</span> vs Awareness</p>
-					</blockquote>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-						<aside class="notes">
-							More interesting than platform is considering the kind of application
-						</aside>
-				</section>
-
-				<section data-transition="fade-in slide-out" data-background="resources/textures/ar-driving-bad.png">
-				<h2>1: Intended Use</h2>
-					<blockquote style="background: rgba(32, 32, 32, 0.6);">
-						<p>Tools vs <span class="green">Awareness</span></p>
-					</blockquote>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-						<aside class="notes">
-							bad driving
-						</aside>
-				</section>
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h2>2: The "R" in "AR" Matters</h2>
-					<p>AR depends on knowledge of the world</p>
-					<p>Can only augment what the system knows about</p>
-					<br>
-					<p><em class="green">Knowledge (in apps) equals risk (for users and others)</em></p>
-				</section>
-
-				<section data-background="resources/textures/home-HoloLens-crop.jpg">
-					<aside class="notes">
-						Here's an example of a picture I grabbed the first night I had a Hololens
-						and brought it home to play with.  Is 
-					</aside>
-				</section>
-
-				<section data-transition="slide-in fade-out" data-background="resources/textures/world-display.png">
-					<h2>3: Different ways to Leverage "R"</h2>
-					<blockquote style="background: rgba(32, 32, 32, 0.6);">
-						<p>World as Massive Display Space (<span class="green">Structure</span>)</p>
-					</blockquote>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-				</section>
-
-				<section data-transition="fade-in slide-out" data-background="resources/textures/spaceframe.png">
-					<h2>3: Different ways to Leverage "R"</h2>
-					<blockquote style="background: rgba(32, 32, 32, 0.6);">
-						<p>Recognize and/or Augment Specific Things (<span class="green">Semantics</span>)</p>
-					</blockquote>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-				</section>
-
-				<section data-background="resources/textures/background-radial.jpeg">
-					<h1>The Problem with "AR Apps"</h1>
-				</section>
-
 
 				<section data-background="resources/textures/background-radial.jpeg">
 					<h1>The Argon Project: early motivations</h1>
@@ -627,12 +517,12 @@
 						<p>Add some new scripts up top</p>
 						<pre><code class="HTML" data-trim contenteditable>
 &lt;script src="resources/js/aframe.js"&gt; &lt;/script&gt; 
-&lt;script src="resources/js/argon.js"&gt; &lt;/script&gt; 
+&lt;script src="resources/js/argon.js"&gt; &lt;/script&gt;
 &lt;script src="resources/js/argon-aframe.js"&gt; &lt;/script&gt; 
 						</code></pre>
 						<p>Add a simple AFrame scene down below</p>
 						<pre><code class="HTML" data-trim contenteditable>
-&lt;ar-scene&gt; 
+&lt;ar-scene&gt;
  ...
 &lt;/ar-scene&gt;
 						</code></pre>
@@ -644,7 +534,7 @@
 &lt;a-box position="0 3 -10" radius="0.25" color="gold" 
        rotation="0 0 45"&gt;
   &lt;a-animation attribute="rotation" from="0 0 45" to="0 360 45" 
-	       dur="1000" easing="ease-in-out" 
+	       dur="1000" easing="ease-in-out"
 	       repeat="indefinite"&gt;
   &lt;/a-animation&gt;
 &lt;/a-box&gt;
@@ -655,7 +545,7 @@
 					<section data-background="resources/textures/background-radial.jpeg">
 						<h2>Geospatial frames of reference</h2>
 						<pre><code class="HTML" data-trim contenteditable>
-&lt;ar-geopose id="GT" lla="-84.394539 33.772501" userotation="false"&gt; 
+&lt;ar-geopose id="GT" lla="-84.394539 33.772501" userotation="false"&gt;
   &lt;a-entity fixedsize="20" billboard&gt;
     &lt;a-plane rotation="0 0 0" width="2.9" height="4" src="#buzzpin" 
              transparent="true" &gt;&lt;/a-plane&gt;
