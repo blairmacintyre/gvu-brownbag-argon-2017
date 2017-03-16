@@ -1,8 +1,8 @@
 {
-  "name": "hawaii-all-hands-2016",
+  "name": "gvu-brownbag-argon-2017",
   "version": "1.0.0",
   "description": "HTML/AR Presentation",
-  "homepage": "https://blairmacintyre.github.io/hawaii-all-hands-2016",
+  "homepage": "https://blairmacintyre.github.io/gvu-brownbag-argon-2017",
   "scripts": {
     "start": "grunt serve"
   },
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/blairmacintyre/hawaii-all-hands-2016.git"
+    "url": "git://github.com/blairmacintyre/gvu-brownbag-argon-2017.git"
   },
   "engines": {
     "node": "~4.1.1"
